@@ -55,8 +55,10 @@ function Header() {
   const location = useLocation()
 
   const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' }
+    { label: 'Dashboard', path: '/student/dashboard' },
+    { label: 'My Calendar', path: '/student/MySession' },
+    { label: 'Find Tutor', path: '/student/FindTutor' },
+    { label: 'Resources', path: '/student/Resources' }
   ]
 
   return (

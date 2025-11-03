@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Header from '../components/Header/LoginHeader'
 import Footer from '../components/Footer/LoginFooter'
 import {
@@ -66,6 +67,7 @@ function RoleCard({ icon, title, description, selected, onClick }) {
 }
 
 function Login() {
+  const navigate = useNavigate()
   const [selectedRole, setSelectedRole] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -93,7 +95,27 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Add your login logic here
+
+    // Validate role selection
+    if (!selectedRole) {
+      alert('Please select a role before signing in')
+      return
+    }
+
+    // Navigate to appropriate dashboard based on role
+    switch (selectedRole) {
+    case 'admin':
+      navigate('/admin/dashboard')
+      break
+    case 'tutor':
+      navigate('/tutor/dashboard')
+      break
+    case 'student':
+      navigate('/student/dashboard')
+      break
+    default:
+      break
+    }
   }
 
   return (
