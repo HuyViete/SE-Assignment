@@ -1,7 +1,7 @@
-import { Mail as MailIcon, Shield as ShieldIcon } from '@mui/icons-material'
 import ComputerIcon from '@mui/icons-material/Computer'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
+import SchoolIcon from '@mui/icons-material/School'
 import { AppBar, Box, Button, MenuItem, Select, Toolbar, Typography } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import { useColorScheme } from '@mui/material/styles'
@@ -55,7 +55,7 @@ function Header() {
   const location = useLocation()
 
   const navItems = [
-    { label: 'Home', path: '/' },
+    { label: 'Help', path: '/help' },
     { label: 'About', path: '/about' }
   ]
 
@@ -75,8 +75,7 @@ function Header() {
       <Toolbar sx={{ px: { xs: 2, sm: 3 } }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 1, sm: 1.5 } }}>
-            <ShieldIcon color="primary" sx={{ mr: 0.5, fontSize: { xs: 20, sm: 24 } }} />
-            <MailIcon color="primary" sx={{ fontSize: { xs: 20, sm: 24 } }} />
+            <SchoolIcon color="primary" sx={{ mr: 0.5, fontSize: { xs: 20, sm: 24 } }} />
           </Box>
           <Typography
             variant="h6"
@@ -86,7 +85,7 @@ function Header() {
               fontSize: { xs: '1rem', sm: '1.25rem' }
             }}
           >
-            Spam Detector
+            EduConnect
           </Typography>
         </Box>
 
