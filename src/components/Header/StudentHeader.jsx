@@ -74,7 +74,7 @@ function Header() {
         color: 'text.primary'
       }}
     >
-      <Toolbar sx={{ px: { xs: 2, sm: 3 } }}>
+      <Toolbar sx={{ px: { xs: 2, sm: 3 }, alignItems: 'center', justifyContent: 'center' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 1, sm: 1.5 } }}>
             <SchoolIcon color="primary" sx={{ mr: 0.5, fontSize: { xs: 20, sm: 24 } }} />
@@ -99,8 +99,7 @@ function Header() {
               onClick={() => navigate(item.path)}
               sx={{
                 fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                textDecoration: location.pathname === item.path ? 'underline' : 'none',
-                textUnderlineOffset: '4px',
+                color: location.pathname === item.path ? 'primary.main' : 'text.primary',
                 fontSize: { xs: '0.75rem', sm: '1rem' },
                 px: { xs: 1, sm: 2 },
                 minWidth: 'auto'
@@ -110,8 +109,8 @@ function Header() {
             </Button>
           ))}
 
-          <ModeSwitcher />
         </Box>
+        <ModeSwitcher />
       </Toolbar>
     </AppBar>
   )
