@@ -13,8 +13,6 @@ import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl'
 import SearchIcon from '@mui/icons-material/Search'
 import InputBase from '@mui/material/InputBase'
-import IconButton from '@mui/material/IconButton'
-import Badge from '@mui/material/Badge'
 
 import { useColorScheme, styled, alpha } from '@mui/material/styles'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -136,10 +134,11 @@ function Header() {
   const location = useLocation()
 
   const navItems = [
-    { label: 'Dashboard', path: '/student/dashboard' },
-    { label: 'My Calendar', path: '/student/MySession' },
-    { label: 'Find Tutor', path: '/student/FindTutor' },
-    { label: 'Resources', path: '/student/Resources' }
+    { label: 'Dashboard', path: '/tutor/dashboard' },
+    { label: 'My Calendar', path: '/tutor/Schedule' },
+    { label: 'My Profile', path: '/tutor/Profile' },
+    { label: 'My students', path: '/tutor/Mentee' },
+    { label: 'Resources', path: '/tutor/Resources' }
   ]
 
   return (
@@ -198,15 +197,7 @@ function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <IconButton
-            size="large"
-            aria-label="show 17 new notifications"
-            color="inherit"
-          >
-            <Badge badgeContent={17} color="error">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <NotificationsIcon />
           <ModeSwitcher />
         </Box>
       </Toolbar>

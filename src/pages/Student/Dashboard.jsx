@@ -1,5 +1,6 @@
+import React, { lazy, Suspense } from 'react'
 import Header from '../../components/Header/StudentHeader'
-import Footer from '../../components/Footer/Footer'
+const Footer = lazy(() => import('../../components/Footer/Footer'))
 import {
   Box,
   Container,
@@ -62,7 +63,7 @@ function StudentDashboard() {
           </Box>
 
           <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs:12, md:4 }}>
               <Paper sx={{ p: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                   <CalendarIcon sx={{ mr: 1, fontSize: 20 }} />
@@ -93,7 +94,7 @@ function StudentDashboard() {
               </Paper>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs:12, md:4 }}>
               <Paper sx={{ p: 2, mb: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                   <ArticleIcon sx={{ mr: 1, fontSize: 20 }} />
@@ -142,7 +143,7 @@ function StudentDashboard() {
               </Paper>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs:12, md:4 }}>
               <Paper sx={{ p: 2, mb: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                   <TrendingIcon sx={{ mr: 1, fontSize: 20 }} />
@@ -153,7 +154,7 @@ function StudentDashboard() {
 
                 <Grid container spacing={1.5} sx={{ mb: 2 }}>
                   {[{ label: 'GPA', value: '3.85', sub: 'out of 4.00' }, { label: 'Courses', value: '12', sub: 'out of 40' }, { label: 'Credits', value: '48', sub: 'Toward 120' }, { label: 'Deadlines', value: '3', sub: 'Next 7 days' }].map((stat, i) => (
-                    <Grid key={i} item xs={6}>
+                    <Grid key={i} size={{ xs: 6 }}>
                       <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.65rem' }}>{stat.label}</Typography>
                       <Typography variant="h5" sx={{ fontWeight: 700 }}>{stat.value}</Typography>
                       <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.6rem' }}>{stat.sub}</Typography>
@@ -224,7 +225,9 @@ function StudentDashboard() {
         </Container>
       </Box>
 
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </Box>
   )
 }
